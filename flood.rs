@@ -4,9 +4,9 @@ use std::{thread, time};
 
 fn main(){
 
-    const NUMBER_OF_COMMITS: i32 = 10;
+    const NUMBER_OF_COMMITS: i32 = 20;
 
-    let mut count: i32 = 0;
+    let mut count: i32 = 10;
 
     loop {
         count += 1;
