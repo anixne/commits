@@ -1,24 +1,22 @@
 use std::process;
-use std::fs::File;
+use std::fs;
 
 fn main(){
 
-    const NUMBER_OF_COMMITS: i32 = 20;
+    const NUMBER_OF_COMMITS: i32 = 200;
 
-    let mut count: i32 = 10;
+    let mut count: i32 = 0;
 
     loop {
         count += 1;
 
-        File::create(format!("./files-rs/{}.txt", count.clone()))
-        //process::Command::new("touch").arg(format!("./files-rs/{}.txt", count.clone())).spawn();
-        process::Command::new("git").arg("add").arg(format!("./files-rs/{}.txt", count.clone())).spawn();
-        process::Command::new("git").arg("commit").arg("-m").arg(format!("\".{}\"", count.clone())).spawn();
+        fs::File::create(format!("./files-rs/{}.txt", count.clone()));
+        process::Command::new("git").arg("add").arg(format!("./files-rs/{}.txt", count.clone())).spawn().expect("Couldnt add").wait();
+        process::Command::new("git").arg("commit").arg("-m").arg(format!("\".{}\"", count.clone())).spawn().expect("Couldnt commit").wait();
 
         if count==NUMBER_OF_COMMITS{
-            process::Command::new("git push origin main");
+            process::Command::new("git").arg("push").arg("origin").arg("main").spawn();
 
-            // Break it blyat
             break;
         }
     }

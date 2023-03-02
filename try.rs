@@ -1,10 +1,7 @@
-use std::process::Command;
+use std::fs::File;
 
 fn main() {
-    let name = "Alice";
-    let output = Command::new(format!("echo Hello, {}!", name))
-        .output()
-        .expect("Failed to execute command");
-
-    println!("{}", String::from_utf8_lossy(&output.stdout));
+    let name = "hey";
+    File::create(format!("new_{}", name));
+    println!("Done");
 }
