@@ -1,6 +1,5 @@
 use std::process;
-use std::{thread, time};
-
+use std::fs::File;
 
 fn main(){
 
@@ -11,8 +10,8 @@ fn main(){
     loop {
         count += 1;
 
-        process::Command::new("touch").arg(format!("./files-rs/{}.txt", count.clone())).spawn();
-        thread::sleep(time::Duration::from_millis(500))
+        File::create(format!("./files-rs/{}.txt", count.clone()))
+        //process::Command::new("touch").arg(format!("./files-rs/{}.txt", count.clone())).spawn();
         process::Command::new("git").arg("add").arg(format!("./files-rs/{}.txt", count.clone())).spawn();
         process::Command::new("git").arg("commit").arg("-m").arg(format!("\".{}\"", count.clone())).spawn();
 
