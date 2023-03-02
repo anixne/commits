@@ -1,7 +1,6 @@
 # Fake commits
 
 #### To increase amount of commits.
-<br>
 
 ### Clone this repository
 ```bash
