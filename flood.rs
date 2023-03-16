@@ -5,7 +5,7 @@ fn main(){
 
     const NUMBER_OF_COMMITS: i32 = 1000;
 
-    let mut count: i32 = 500;
+    let mut count: i32 = 0;
 
     loop {
         count += 1;

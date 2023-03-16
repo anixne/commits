@@ -5,7 +5,7 @@ import os
 NUMBER_OF_COMMITS = 500
 
 for i in range(NUMBER_OF_COMMITS):
-    open(f"touch ./files/{i}.txt", "w")
+    open(f"./files/{i}.txt", "w")
     os.system(f"git add ./files/{i}.txt")
     os.system(f'git commit -m "{i}.txt"')
 
