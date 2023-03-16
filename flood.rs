@@ -3,9 +3,9 @@ use std::fs;
 
 fn main(){
 
-    const NUMBER_OF_COMMITS: i32 = 500;
+    const NUMBER_OF_COMMITS: i32 = 1000;
 
-    let mut count: i32 = 0;
+    let mut count: i32 = 500;
 
     loop {
         count += 1;
